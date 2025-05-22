@@ -4,91 +4,87 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Chaos E-Sports</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <!-- AOS Animations CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0f0f0f;
+      font-family: Arial, sans-serif;
+      background-color: #0e0e0e;
       color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
     }
 
     header {
-      background-color: #ff3c00;
-      padding: 20px 0;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    nav {
-      background-color: #1a1a1a;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 15px 0;
+      background-color: #1e1e1e;
+      padding: 20px;
     }
 
     nav a {
-      color: white;
+      color: #00ffff;
+      margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
-      transition: 0.3s;
     }
 
     nav a:hover {
-      color: #ff3c00;
+      text-decoration: underline;
+    }
+
+    .logo {
+      width: 150px;
+      margin-bottom: 10px;
     }
 
     section {
-      padding: 60px 20px;
-      text-align: center;
+      padding: 50px 20px;
     }
 
-    footer {
-      background-color: #1a1a1a;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #ccc;
-    }
-
-    h2 {
-      color: #ff3c00;
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>The Chaos E-Sports</h1>
+    <img src="logo.png" alt="The Chaos Logo" class="logo" data-aos="fade-down" />
+    <h1 data-aos="zoom-in">The Chaos E-Sports</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#teams">Teams</a>
+      <a href="#contact">Contact</a>
+      <a href="https://discord.gg/jouwcode" target="_blank">Join Discord</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#games">Games</a>
-    <a href="#team">Team</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
   <section id="about">
-    <h2>About Us</h2>
-    <p>We are a Belgian AND Italian-based competitive esports organization focused on Rocket League and Brawl Stars. Our mission is to grow talent and dominate tournaments.</p>
+    <h2 data-aos="fade-up">About Us</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      We are The Chaos — a competitive e-sports team in Rocket League & Brawl Stars.
+    </p>
+    <img src="images/about.jpg" alt="About Image" data-aos="zoom-in" data-aos-delay="200" />
   </section>
 
-  <section id="games">
-    <h2>Games We Play</h2>
-    <p>🎮 Rocket League<br>📱 Brawl Stars</p>
+  <section id="teams">
+    <h2 data-aos="fade-up">Our Teams</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      We play in the RLCS and host Brawl Stars community events!
+    </p>
+    <img src="images/team.jpg" alt="Team Image" data-aos="zoom-in" data-aos-delay="200" />
   </section>
 
-  <section id="team">
-    <h2>Our Team</h2>
-    <p>Meet the players and staff behind the success of The Chaos E-Sports. Info coming soon!</p>
-  </section>
-
-  <section id="contact">
+  <!-- AOS Animations JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+<section id="contact">
     <h2>Contact</h2>
     <p>Email: chaos.esports@gmail.com</p>
     <p><a href="https://www.instagram.com/thechaosesports/" style="color: #ff3c00;">Check our Instagram page!</a><p>
