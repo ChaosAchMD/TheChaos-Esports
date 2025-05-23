@@ -4,20 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chaos Esport</title>
+
+  <!-- AOS Animate on Scroll CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
   <style>
-    /* Reset and Base Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body, html {
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
       color: #fff;
       overflow-x: hidden;
     }
-    /* Video Background */
+
     .video-bg {
       position: fixed;
       top: 0;
@@ -27,114 +31,136 @@
       object-fit: cover;
       z-index: -1;
     }
-    /* Overlay */
+
     .overlay {
       position: relative;
       z-index: 1;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.7);
       min-height: 100vh;
-      padding: 20px;
     }
-    /* Navigation */
+
     nav {
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 15px 0;
-      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: rgba(0, 0, 0, 0.85);
       position: sticky;
       top: 0;
-      z-index: 2;
+      z-index: 10;
     }
+
+    nav img {
+      height: 50px;
+    }
+
     nav a {
       color: #fff;
+      margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
     }
+
     nav a:hover {
       color: #f0c040;
     }
-    /* Sections */
+
     section {
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
     }
+
     .section-title {
-      font-size: 36px;
+      font-size: 40px;
       margin-bottom: 20px;
     }
-    /* Animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1s forwards;
+
+    .section-image {
+      max-width: 300px;
+      margin: 20px auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+
+    p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 18px;
+      line-height: 1.6;
     }
-    /* Responsive */
+
     @media (max-width: 768px) {
       .section-title {
-        font-size: 28px;
+        font-size: 30px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Video Background -->
+
+  <!-- Background Video -->
   <video class="video-bg" autoplay muted loop>
-    <source src="your-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+    <source src="your-video.mp4" type="video/mp4" />
   </video>
 
-  <!-- Overlay Content -->
   <div class="overlay">
     <!-- Navigation -->
     <nav>
-      <a href="#home">Home</a>
-      <a href="#team">Team</a>
-      <a href="#events">Events</a>
-      <a href="#store">Store</a>
-      <a href="#contact">Contact</a>
+      <img src="logo.png" alt="Chaos Logo" />
+      <div>
+        <a href="#home">Home</a>
+        <a href="#team">Team</a>
+        <a href="#events">Events</a>
+        <a href="#store">Store</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="fade-in">
+    <!-- Sections -->
+    <section id="home" data-aos="fade-up">
       <h1 class="section-title">Welcome to Chaos Esport</h1>
-      <p>Experience the thrill of competitive gaming with us.</p>
+      <p>Experience the thrill of elite gaming competition with Chaos Esport. We are the future of eSports.</p>
+      <img src="images/home-banner.jpg" alt="Chaos Gaming" class="section-image" />
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="fade-in">
-      <h2 class="section-title">Our Team</h2>
-      <p>Meet the elite players behind Chaos Esport.</p>
-      <!-- Add team member profiles here -->
+    <section id="team" data-aos="fade-right">
+      <h2 class="section-title">Meet the Team</h2>
+      <p>Our professional squad is packed with talent, passion, and dedication to win.</p>
+      <img src="images/team.jpg" alt="Team" class="section-image" />
     </section>
 
-    <!-- Events Section -->
-    <section id="events" class="fade-in">
+    <section id="events" data-aos="zoom-in">
       <h2 class="section-title">Upcoming Events</h2>
-      <p>Stay tuned for our next big matches and tournaments.</p>
-      <!-- Add event calendar or list here -->
+      <p>Join us live in upcoming championships and tournaments. Don’t miss the action!</p>
+      <img src="images/events.jpg" alt="Events" class="section-image" />
     </section>
 
-    <!-- Store Section -->
-    <section id="store" class="fade-in">
-      <h2 class="section-title">Merchandise Store</h2>
-      <p>Get your official Chaos Esport gear.</p>
-      <!-- Add store items here -->
+    <section id="store" data-aos="fade-left">
+      <h2 class="section-title">Official Store</h2>
+      <p>Get your Chaos gear — hoodies, caps, mousepads and more. Support the squad in style!</p>
+      <img src="images/merch.jpg" alt="Merch" class="section-image" />
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="fade-in">
+    <section id="contact" data-aos="fade-up">
       <h2 class="section-title">Contact Us</h2>
-      <p>Have questions or want to join the team? Reach out!</p>
-      <!-- Add contact form or details here -->
+      <p>Want to collaborate, sponsor, or join the team? Contact us via email or socials.</p>
+      <img src="images/contact.jpg" alt="Contact" class="section-image" />
     </section>
   </div>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
 </body>
 </html>
