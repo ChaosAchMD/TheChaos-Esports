@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chaos Esport</title>
+  <title>The Chaos Esports</title>
 
   <!-- AOS Animate on Scroll CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -19,24 +19,13 @@
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
       color: #fff;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
       overflow-x: hidden;
-      background: #000;
-    }
-
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
     }
 
     .overlay {
-      position: relative;
-      z-index: 1;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.75);
       min-height: 100vh;
     }
 
@@ -64,7 +53,7 @@
     }
 
     nav a:hover {
-      color: #f0c040;
+      color: #ffcc00;
     }
 
     section {
@@ -75,6 +64,8 @@
     .section-title {
       font-size: 40px;
       margin-bottom: 20px;
+      color: #ffcc00;
+      letter-spacing: 1px;
     }
 
     .section-image {
@@ -117,7 +108,7 @@
     }
 
     .buy-button {
-      background: #f0c040;
+      background: #ffcc00;
       color: #000;
       border: none;
       padding: 10px 20px;
@@ -128,7 +119,7 @@
     }
 
     .buy-button:hover {
-      background: #e0b030;
+      background: #e6b800;
     }
 
     @media (max-width: 768px) {
@@ -149,11 +140,6 @@
   </style>
 </head>
 <body>
-  <!-- Background Video -->
-  <video class="video-bg" autoplay muted loop>
-    <source src="your-video.mp4" type="video/mp4" />
-  </video>
-
   <div class="overlay">
     <!-- Navigation -->
     <nav>
@@ -169,7 +155,7 @@
 
     <!-- Home Section -->
     <section id="home" data-aos="fade-up">
-      <h1 class="section-title">Welcome to Chaos Esport</h1>
+      <h1 class="section-title">Welcome to Chaos Esports</h1>
       <p>Elite gaming starts here. Join our journey and dominate the game.</p>
       <img src="Logo.png" alt="Chaos Gaming" class="section-image" />
     </section>
@@ -177,7 +163,7 @@
     <!-- Team Section -->
     <section id="team" data-aos="fade-right">
       <h2 class="section-title">Meet the Team</h2>
-      <p>Our players are the heart of Chaos Esport. Skilled, driven and relentless.</p>
+      <p>Our players are the heart of Chaos. Skilled, driven and relentless.</p>
       <img src="tournament_bs.jpg" alt="Team" class="section-image" />
     </section>
 
