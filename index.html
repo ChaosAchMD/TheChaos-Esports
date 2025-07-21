@@ -4,16 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Chaos Esports</title>
-
-  <!-- AOS Animate on Scroll CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body, html {
       height: 100%;
@@ -40,9 +33,7 @@
       z-index: 10;
     }
 
-    nav img {
-      height: 50px;
-    }
+    nav img { height: 50px; }
 
     nav a {
       color: #fff;
@@ -52,9 +43,7 @@
       transition: color 0.3s;
     }
 
-    nav a:hover {
-      color: #ffcc00;
-    }
+    nav a:hover { color: #ffcc00; }
 
     section {
       padding: 80px 20px;
@@ -75,6 +64,32 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
 
+    .team-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .member-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 220px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .member-card h3 {
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .member-card p {
+      font-size: 14px;
+      color: #ccc;
+    }
+
     .product-grid {
       display: flex;
       flex-wrap: wrap;
@@ -93,9 +108,7 @@
       transition: transform 0.3s;
     }
 
-    .product-card:hover {
-      transform: scale(1.05);
-    }
+    .product-card:hover { transform: scale(1.05); }
 
     .product-card img {
       width: 100%;
@@ -103,9 +116,7 @@
       margin-bottom: 15px;
     }
 
-    .product-card h3 {
-      margin: 10px 0;
-    }
+    .product-card h3 { margin: 10px 0; }
 
     .buy-button {
       background: #ffcc00;
@@ -118,24 +129,12 @@
       transition: background 0.3s;
     }
 
-    .buy-button:hover {
-      background: #e6b800;
-    }
+    .buy-button:hover { background: #e6b800; }
 
     @media (max-width: 768px) {
-      .section-title {
-        font-size: 30px;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .product-grid {
-        flex-direction: column;
-        align-items: center;
-      }
+      .section-title { font-size: 30px; }
+      nav { flex-direction: column; gap: 10px; }
+      .product-grid { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -153,46 +152,71 @@
       </div>
     </nav>
 
-    <!-- Home Section -->
+    <!-- Home -->
     <section id="home" data-aos="fade-up">
       <h1 class="section-title">Welcome to Chaos Esports</h1>
       <p>Elite gaming starts here. Join our journey and dominate the game.</p>
       <img src="Logo.png" alt="Chaos Gaming" class="section-image" />
     </section>
 
-    <!-- Team Section -->
+    <!-- Team -->
     <section id="team" data-aos="fade-right">
       <h2 class="section-title">Meet the Team</h2>
-      <p>Our players are the heart of Chaos. Skilled, driven and relentless.</p>
-      <img src="tournament_bs.jpg" alt="Team" class="section-image" />
+      <p>Our core Rocket League roster, academy, and staff:</p>
+      <div class="team-list">
+        <div class="member-card">
+          <h3>Ray</h3>
+          <p>Main Roster - 2s</p>
+        </div>
+        <div class="member-card">
+          <h3>Rolling Fuelyt (Connor)</h3>
+          <p>Main Roster - 2s</p>
+        </div>
+        <div class="member-card">
+          <h3>Mr. COACH</h3>
+          <p>Rocket League Coach</p>
+        </div>
+        <div class="member-card">
+          <h3>Achmed</h3>
+          <p>Manager</p>
+        </div>
+        <div class="member-card">
+          <h3>Tommy</h3>
+          <p>Academy Roster</p>
+        </div>
+        <div class="member-card">
+          <h3>Brandon</h3>
+          <p>Academy Roster</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Events Section -->
+    <!-- Events -->
     <section id="events" data-aos="zoom-in">
       <h2 class="section-title">Upcoming Events</h2>
       <p>Be part of the action. Our next competitions are around the corner.</p>
       <img src="rlcs.jpg" alt="Events" class="section-image" />
     </section>
 
-    <!-- Store Section -->
+    <!-- Store -->
     <section id="store" data-aos="fade-left">
       <h2 class="section-title">Official Store</h2>
       <p>Support your team with Chaos merch!</p>
       <div class="product-grid">
         <div class="product-card">
-          <img src="images/hoodie.jpg" alt="Chaos Hoodie">
+          <img src="hoodie.jpg" alt="Chaos Hoodie">
           <h3>Chaos Hoodie</h3>
           <p>€39.99</p>
           <button class="buy-button">Buy Now</button>
         </div>
         <div class="product-card">
-          <img src="images/mousepad.jpg" alt="Chaos Mousepad">
+          <img src="mousepad.jpg" alt="Chaos Mousepad">
           <h3>Mousepad XL</h3>
           <p>€19.99</p>
           <button class="buy-button">Buy Now</button>
         </div>
         <div class="product-card">
-          <img src="images/cap.jpg" alt="Chaos Cap">
+          <img src="cap.jpg" alt="Chaos Cap">
           <h3>Team Cap</h3>
           <p>€24.99</p>
           <button class="buy-button">Buy Now</button>
@@ -200,21 +224,17 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" data-aos="fade-up">
       <h2 class="section-title">Contact Us</h2>
       <p>Want to join or partner with us? Email us at contact@chaosesport.com</p>
-      <img src="images/contact.jpg" alt="Contact" class="section-image" />
+      <img src="contact.jpg" alt="Contact" class="section-image" />
     </section>
   </div>
 
-  <!-- AOS Animate on Scroll JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
+    AOS.init({ duration: 1000, once: true });
   </script>
 </body>
 </html>
