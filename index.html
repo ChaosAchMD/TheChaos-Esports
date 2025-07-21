@@ -109,13 +109,14 @@
       color: #000;
       border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.3s ease;
       font-size: 16px;
       box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
     }
 
     .team-buttons button:hover {
       background: #e6b800;
+      transform: scale(1.05);
     }
 
     .team-list {
@@ -139,11 +140,6 @@
       border-radius: 10px;
       width: 220px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .member-card:hover {
-      transform: scale(1.05);
     }
 
     .member-card h3 {
@@ -156,7 +152,6 @@
       color: #ccc;
     }
 
-    /* Events styling */
     #events p {
       font-weight: bold;
       font-size: 18px;
@@ -164,21 +159,10 @@
       margin-bottom: 20px;
     }
 
-    #events .stream-info {
-      background:#000; 
-      padding:40px; 
-      color:#ffcc00; 
-      font-weight:bold; 
-      border-radius:10px; 
-      max-width: 900px; 
-      margin: 0 auto;
-    }
-
     @media (max-width: 768px) {
       .section-title { font-size: 30px; }
       nav { flex-direction: column; gap: 10px; }
       .team-buttons { flex-direction: column; gap: 10px; }
-      .member-card { width: 90%; max-width: 300px; }
     }
   </style>
 </head>
@@ -252,20 +236,9 @@
       <h2 class="section-title">Upcoming Events</h2>
       <p>Upcoming events: Cash Cup and RLCS Last Qualifiers — <strong>DON'T MISS THIS OUT!!</strong></p>
 
-      <div class="stream-info">
-        Stream binnenkort live! Stay tuned.
+      <div style="background:#000; padding:40px; color:#ffcc00; font-weight:bold; border-radius:10px; max-width: 900px; margin: 0 auto;">
+        🎥 Stream binnenkort live! Stay tuned.
       </div>
-      <!--
-      Later, als je Twitch kanaal hebt, kan je dit embedden: 
-      <iframe
-        src="https://player.twitch.tv/?channel=JOUWKANAAL&parent=YOURDOMAIN.com"
-        height="500"
-        width="100%"
-        frameborder="0"
-        scrolling="no"
-        allowfullscreen="true">
-      </iframe>
-      -->
     </section>
 
     <!-- Contact -->
@@ -279,21 +252,17 @@
   <script>
     AOS.init({ duration: 1000, once: true });
 
-    // Team buttons smooth toggle with fade effect
+    // Team buttons toggle
     const buttons = document.querySelectorAll('.team-buttons button');
     const lists = document.querySelectorAll('.team-list');
 
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         const targetId = button.getAttribute('data-target');
-
         lists.forEach(list => {
-          if(list.id === targetId) {
-            list.classList.add('active');
-          } else {
-            list.classList.remove('active');
-          }
+          list.classList.remove('active');
         });
+        document.getElementById(targetId).classList.add('active');
       });
     });
   </script>
