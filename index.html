@@ -12,7 +12,10 @@
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
       color: #fff;
-      background: #000; /* background.jpg verwijderd omdat je die misschien niet hebt */
+      /* Zachte fade achtergrond met logo */
+      background: 
+        linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+        url('Logo.png') no-repeat center center fixed;
       background-size: cover;
       overflow-x: hidden;
     }
@@ -79,6 +82,8 @@
       cursor: pointer;
       font-weight: bold;
       transition: background-color 0.3s;
+      position: relative;
+      overflow: hidden;
     }
 
     .team-btn:hover {
@@ -94,10 +99,17 @@
     .team-category {
       display: none;
       margin-top: 20px;
+
+      /* start on opacity 0 and translateY for smooth fade-in/down */
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     .team-category.active {
       display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .team-list {
@@ -126,52 +138,9 @@
       color: #ccc;
     }
 
-    /* Products */
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .product-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 20px;
-      width: 250px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s;
-    }
-
-    .product-card:hover { transform: scale(1.05); }
-
-    .product-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .product-card h3 { margin: 10px 0; }
-
-    .buy-button {
-      background: #ffcc00;
-      color: #000;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .buy-button:hover { background: #e6b800; }
-
     @media (max-width: 768px) {
       .section-title { font-size: 30px; }
       nav { flex-direction: column; gap: 10px; }
-      .product-grid { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -184,7 +153,7 @@
         <a href="#home">Home</a>
         <a href="#team">Team</a>
         <a href="#events">Events</a>
-        <a href="#store">Store</a>
+        <!-- Store verwijderd -->
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -250,44 +219,13 @@
     <!-- Events -->
     <section id="events" data-aos="zoom-in">
       <h2 class="section-title">Upcoming Events</h2>
-      <p>Be part of the action. Our next competitions are around the corner.</p>
-      <!-- rlcs.jpg verwijderd omdat je die afbeelding waarschijnlijk niet hebt -->
-      <!-- <img src="rlcs.jpg" alt="Events" class="section-image" /> -->
-      <p style="font-style: italic; color: #ccc;">(Afbeelding van events is verwijderd omdat deze niet beschikbaar is)</p>
-    </section>
-
-    <!-- Store -->
-    <section id="store" data-aos="fade-left">
-      <h2 class="section-title">Official Store</h2>
-      <p>Support your team with Chaos merch!</p>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="hoodie.jpg" alt="Chaos Hoodie">
-          <h3>Chaos Hoodie</h3>
-          <p>€39.99</p>
-          <button class="buy-button">Buy Now</button>
-        </div>
-        <div class="product-card">
-          <img src="mousepad.jpg" alt="Chaos Mousepad">
-          <h3>Mousepad XL</h3>
-          <p>€19.99</p>
-          <button class="buy-button">Buy Now</button>
-        </div>
-        <div class="product-card">
-          <img src="cap.jpg" alt="Chaos Cap">
-          <h3>Team Cap</h3>
-          <p>€24.99</p>
-          <button class="buy-button">Buy Now</button>
-        </div>
-      </div>
+      <p><strong>Upcoming events:</strong> Cash Cup and RLCS Last Qualifiers — <span style="color:#ffcc00;">DON'T MISS THIS OUT!!</span></p>
     </section>
 
     <!-- Contact -->
     <section id="contact" data-aos="fade-up">
       <h2 class="section-title">Contact Us</h2>
       <p>Want to join or partner with us? Email us at contact@chaosesport.com</p>
-      <!-- contact.jpg verwijderd omdat je die afbeelding waarschijnlijk niet hebt -->
-      <!-- <img src="contact.jpg" alt="Contact" class="section-image" /> -->
       <p style="font-style: italic; color: #ccc;">(Afbeelding van contact is verwijderd omdat deze niet beschikbaar is)</p>
     </section>
   </div>
@@ -309,7 +247,6 @@
       document.querySelectorAll('.team-btn').forEach(btn => {
         btn.classList.remove('active');
       });
-      // Zet active op de knop die klik kreeg
       event.target.classList.add('active');
     }
   </script>
