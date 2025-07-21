@@ -6,6 +6,10 @@
   <title>The Chaos Esports</title>
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body, html {
@@ -77,13 +81,6 @@
       letter-spacing: 1px;
     }
 
-    .section-image {
-      max-width: 300px;
-      margin: 20px auto;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    }
-
     .team-category {
       margin-top: 40px;
     }
@@ -145,9 +142,6 @@
       color: #ccc;
     }
 
-    /* Removed Store Section */
-
-    /* Events */
     #events p {
       font-weight: bold;
       font-size: 18px;
@@ -172,7 +166,6 @@
         <a href="#team">Team</a>
         <a href="#events">Events</a>
         <a href="#contact">Contact</a>
-        <!-- Store link removed -->
       </div>
     </nav>
 
@@ -180,7 +173,6 @@
     <section id="home" data-aos="fade-up">
       <h1 class="section-title">Welcome to Chaos Esports</h1>
       <p>Elite gaming starts here. Join our journey and dominate the game.</p>
-      <img src="Logo.png" alt="Chaos Gaming" class="section-image" />
     </section>
 
     <!-- Team -->
@@ -232,22 +224,17 @@
     <section id="events" data-aos="zoom-in">
       <h2 class="section-title">Upcoming Events</h2>
       <p>Upcoming events: Cash Cup and RLCS Last Qualifiers <strong>DON'T MISS THIS OUT!!</strong></p>
-      <img src="rlcs.jpg" alt="Events" class="section-image" />
 
-      <!-- Twitch Stream embed (placeholder) -->
-      <section id="stream" style="margin-top: 50px; text-align: center;">
-        <h2 class="section-title">Live Stream</h2>
-        <div id="twitch-embed" style="width: 100%; max-width: 900px; height: 500px; margin: 0 auto; background: #000; display: flex; justify-content: center; align-items: center; color: #ffcc00; font-weight: bold;">
-          Stream binnenkort live! Stay tuned.
-        </div>
-      </section>
+      <!-- Twitch Stream placeholder -->
+      <div style="background:#000; padding:40px; color:#ffcc00; font-weight:bold; text-align:center; border-radius:10px;">
+        Stream binnenkort live! Stay tuned.
+      </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" data-aos="fade-up">
       <h2 class="section-title">Contact Us</h2>
       <p>Want to join or partner with us? Email us at contact@chaosesport.com</p>
-      <img src="contact.jpg" alt="Contact" class="section-image" />
     </section>
   </div>
 
@@ -274,3 +261,4 @@
   </script>
 </body>
 </html>
+
