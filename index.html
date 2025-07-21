@@ -12,7 +12,7 @@
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
       color: #fff;
-      background: url('background.jpg') no-repeat center center fixed;
+      background: #000; /* background.jpg verwijderd omdat je die misschien niet hebt */
       background-size: cover;
       overflow-x: hidden;
     }
@@ -64,8 +64,40 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
 
+    /* Team */
+    .team-buttons {
+      margin-bottom: 20px;
+    }
+
+    .team-btn {
+      background-color: #222;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px 20px 0;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .team-btn:hover {
+      background-color: #ffcc00;
+      color: #000;
+    }
+
+    .team-btn.active {
+      background-color: #ffcc00;
+      color: #000;
+    }
+
     .team-category {
-      margin-top: 40px;
+      display: none;
+      margin-top: 20px;
+    }
+
+    .team-category.active {
+      display: block;
     }
 
     .team-list {
@@ -94,6 +126,7 @@
       color: #ccc;
     }
 
+    /* Products */
     .product-grid {
       display: flex;
       flex-wrap: wrap;
@@ -161,61 +194,66 @@
       <h1 class="section-title">Welcome to Chaos Esports</h1>
       <p>Elite gaming starts here. Join our journey and dominate the game.</p>
       <img src="Logo.png" alt="Chaos Gaming" class="section-image" />
+    </section>
 
-      <!--Team-->
-      <section id="team" data-aos="fade-right">
-  <h2 class="section-title">Meet the Team</h2>
-  <p>Discover our rosters and staff lineup</p>
+    <!-- Team -->
+    <section id="team" data-aos="fade-right">
+      <h2 class="section-title">Meet the Team</h2>
+      <p>Discover our rosters and staff lineup</p>
 
-  <div class="team-category">
-    <h3>Main Roster</h3>
-    <div class="team-list">
-      <div class="member-card">
-        <h3>Ray</h3>
-        <p>2s Main Player</p>
+      <div class="team-buttons">
+        <button class="team-btn active" onclick="showTeam('main')">Main Roster</button>
+        <button class="team-btn" onclick="showTeam('academy')">Academy Roster</button>
+        <button class="team-btn" onclick="showTeam('staff')">Staff</button>
       </div>
-      <div class="member-card">
-        <h3>Rolling Fuelyt (Connor)</h3>
-        <p>2s Main Player</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="team-category">
-    <h3>Academy Roster</h3>
-    <div class="team-list">
-      <div class="member-card">
-        <h3>Tommy</h3>
-        <p>Academy Player</p>
+      <div id="main" class="team-category active">
+        <div class="team-list">
+          <div class="member-card">
+            <h3>Ray</h3>
+            <p>2s Main Player</p>
+          </div>
+          <div class="member-card">
+            <h3>Rolling Fuelyt (Connor)</h3>
+            <p>2s Main Player</p>
+          </div>
+        </div>
       </div>
-      <div class="member-card">
-        <h3>Brandon</h3>
-        <p>Academy Player</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="team-category">
-    <h3>Staff</h3>
-    <div class="team-list">
-      <div class="member-card">
-        <h3>Mr. COACH</h3>
-        <p>Rocket League Coach</p>
+      <div id="academy" class="team-category">
+        <div class="team-list">
+          <div class="member-card">
+            <h3>Tommy</h3>
+            <p>Academy Player</p>
+          </div>
+          <div class="member-card">
+            <h3>Brandon</h3>
+            <p>Academy Player</p>
+          </div>
+        </div>
       </div>
-      <div class="member-card">
-        <h3>ShadowBs</h3>
-        <p>Manager</p>
-      </div>
-    </div>
-  </div>
-</section>
 
+      <div id="staff" class="team-category">
+        <div class="team-list">
+          <div class="member-card">
+            <h3>Mr. COACH</h3>
+            <p>Rocket League Coach</p>
+          </div>
+          <div class="member-card">
+            <h3>ShadowBs</h3>
+            <p>Manager</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Events -->
     <section id="events" data-aos="zoom-in">
       <h2 class="section-title">Upcoming Events</h2>
       <p>Be part of the action. Our next competitions are around the corner.</p>
-      <img src="rlcs.jpg" alt="Events" class="section-image" />
+      <!-- rlcs.jpg verwijderd omdat je die afbeelding waarschijnlijk niet hebt -->
+      <!-- <img src="rlcs.jpg" alt="Events" class="section-image" /> -->
+      <p style="font-style: italic; color: #ccc;">(Afbeelding van events is verwijderd omdat deze niet beschikbaar is)</p>
     </section>
 
     <!-- Store -->
@@ -248,13 +286,32 @@
     <section id="contact" data-aos="fade-up">
       <h2 class="section-title">Contact Us</h2>
       <p>Want to join or partner with us? Email us at contact@chaosesport.com</p>
-      <img src="contact.jpg" alt="Contact" class="section-image" />
+      <!-- contact.jpg verwijderd omdat je die afbeelding waarschijnlijk niet hebt -->
+      <!-- <img src="contact.jpg" alt="Contact" class="section-image" /> -->
+      <p style="font-style: italic; color: #ccc;">(Afbeelding van contact is verwijderd omdat deze niet beschikbaar is)</p>
     </section>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
+
+    function showTeam(categoryId) {
+      // Verberg alle categorieën
+      document.querySelectorAll('.team-category').forEach(cat => {
+        cat.classList.remove('active');
+      });
+
+      // Toon de geselecteerde categorie
+      document.getElementById(categoryId).classList.add('active');
+
+      // Update actieve knop
+      document.querySelectorAll('.team-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      // Zet active op de knop die klik kreeg
+      event.target.classList.add('active');
+    }
   </script>
 </body>
 </html>
