@@ -12,17 +12,30 @@
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
       color: #fff;
-      /* Zachte fade achtergrond met logo */
-      background: 
-        linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
-        url('Logo.png') no-repeat center center fixed;
+      background: url('background.jpg') no-repeat center center fixed;
       background-size: cover;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Logo fade background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('Logo.png') center center no-repeat;
+      background-size: contain;
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .overlay {
       background-color: rgba(0, 0, 0, 0.75);
       min-height: 100vh;
+      position: relative;
+      z-index: 1;
+      padding-bottom: 50px;
     }
 
     nav {
@@ -44,6 +57,7 @@
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
+      cursor: pointer;
     }
 
     nav a:hover { color: #ffcc00; }
@@ -51,6 +65,9 @@
     section {
       padding: 80px 20px;
       text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
     }
 
     .section-title {
@@ -67,57 +84,47 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
 
-    /* Team */
-    .team-buttons {
-      margin-bottom: 20px;
+    .team-category {
+      margin-top: 40px;
     }
 
-    .team-btn {
-      background-color: #222;
-      color: #fff;
+    .team-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .team-buttons button {
+      background: #ffcc00;
       border: none;
-      padding: 10px 20px;
-      margin: 0 10px 20px 0;
+      padding: 12px 25px;
+      font-weight: bold;
+      color: #000;
       border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s;
-      position: relative;
-      overflow: hidden;
+      transition: background 0.3s;
+      font-size: 16px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
     }
 
-    .team-btn:hover {
-      background-color: #ffcc00;
-      color: #000;
-    }
-
-    .team-btn.active {
-      background-color: #ffcc00;
-      color: #000;
-    }
-
-    .team-category {
-      display: none;
-      margin-top: 20px;
-
-      /* start on opacity 0 and translateY for smooth fade-in/down */
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .team-category.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
+    .team-buttons button:hover {
+      background: #e6b800;
     }
 
     .team-list {
-      display: flex;
+      display: none;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
       margin-top: 20px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .team-list.active {
+      display: flex;
+      opacity: 1;
     }
 
     .member-card {
@@ -138,9 +145,20 @@
       color: #ccc;
     }
 
+    /* Removed Store Section */
+
+    /* Events */
+    #events p {
+      font-weight: bold;
+      font-size: 18px;
+      color: #ffcc00;
+      margin-bottom: 20px;
+    }
+
     @media (max-width: 768px) {
       .section-title { font-size: 30px; }
       nav { flex-direction: column; gap: 10px; }
+      .team-buttons { flex-direction: column; gap: 10px; }
     }
   </style>
 </head>
@@ -153,8 +171,8 @@
         <a href="#home">Home</a>
         <a href="#team">Team</a>
         <a href="#events">Events</a>
-        <!-- Store verwijderd -->
         <a href="#contact">Contact</a>
+        <!-- Store link removed -->
       </div>
     </nav>
 
@@ -171,47 +189,41 @@
       <p>Discover our rosters and staff lineup</p>
 
       <div class="team-buttons">
-        <button class="team-btn active" onclick="showTeam('main')">Main Roster</button>
-        <button class="team-btn" onclick="showTeam('academy')">Academy Roster</button>
-        <button class="team-btn" onclick="showTeam('staff')">Staff</button>
+        <button data-target="main-roster">Main Roster</button>
+        <button data-target="academy-roster">Academy Roster</button>
+        <button data-target="staff-roster">Staff</button>
       </div>
 
-      <div id="main" class="team-category active">
-        <div class="team-list">
-          <div class="member-card">
-            <h3>Ray</h3>
-            <p>2s Main Player</p>
-          </div>
-          <div class="member-card">
-            <h3>Rolling Fuelyt (Connor)</h3>
-            <p>2s Main Player</p>
-          </div>
+      <div id="main-roster" class="team-list active">
+        <div class="member-card">
+          <h3>Rayy</h3>
+          <p>2s Main Player</p>
+        </div>
+        <div class="member-card">
+          <h3>Rolling Fuelyt</h3>
+          <p>2s Main Player</p>
         </div>
       </div>
 
-      <div id="academy" class="team-category">
-        <div class="team-list">
-          <div class="member-card">
-            <h3>Tommy</h3>
-            <p>Academy Player</p>
-          </div>
-          <div class="member-card">
-            <h3>Brandon</h3>
-            <p>Academy Player</p>
-          </div>
+      <div id="academy-roster" class="team-list">
+        <div class="member-card">
+          <h3>Tommy</h3>
+          <p>Academy Player</p>
+        </div>
+        <div class="member-card">
+          <h3>Brandon</h3>
+          <p>Academy Player</p>
         </div>
       </div>
 
-      <div id="staff" class="team-category">
-        <div class="team-list">
-          <div class="member-card">
-            <h3>Mr. COACH</h3>
-            <p>Rocket League Coach</p>
-          </div>
-          <div class="member-card">
-            <h3>ShadowBs</h3>
-            <p>Manager</p>
-          </div>
+      <div id="staff-roster" class="team-list">
+        <div class="member-card">
+          <h3>Mr. COACH</h3>
+          <p>Rocket League Coach</p>
+        </div>
+        <div class="member-card">
+          <h3>ShadowBs</h3>
+          <p>Manager</p>
         </div>
       </div>
     </section>
@@ -219,14 +231,23 @@
     <!-- Events -->
     <section id="events" data-aos="zoom-in">
       <h2 class="section-title">Upcoming Events</h2>
-      <p><strong>Upcoming events:</strong> Cash Cup and RLCS Last Qualifiers — <span style="color:#ffcc00;">DON'T MISS THIS OUT!!</span></p>
+      <p>Upcoming events: Cash Cup and RLCS Last Qualifiers <strong>DON'T MISS THIS OUT!!</strong></p>
+      <img src="rlcs.jpg" alt="Events" class="section-image" />
+
+      <!-- Twitch Stream embed (placeholder) -->
+      <section id="stream" style="margin-top: 50px; text-align: center;">
+        <h2 class="section-title">Live Stream</h2>
+        <div id="twitch-embed" style="width: 100%; max-width: 900px; height: 500px; margin: 0 auto; background: #000; display: flex; justify-content: center; align-items: center; color: #ffcc00; font-weight: bold;">
+          Stream binnenkort live! Stay tuned.
+        </div>
+      </section>
     </section>
 
     <!-- Contact -->
     <section id="contact" data-aos="fade-up">
       <h2 class="section-title">Contact Us</h2>
       <p>Want to join or partner with us? Email us at contact@chaosesport.com</p>
-      <p style="font-style: italic; color: #ccc;">(Afbeelding van contact is verwijderd omdat deze niet beschikbaar is)</p>
+      <img src="contact.jpg" alt="Contact" class="section-image" />
     </section>
   </div>
 
@@ -234,21 +255,22 @@
   <script>
     AOS.init({ duration: 1000, once: true });
 
-    function showTeam(categoryId) {
-      // Verberg alle categorieën
-      document.querySelectorAll('.team-category').forEach(cat => {
-        cat.classList.remove('active');
-      });
+    // Team buttons smooth fade toggle
+    const buttons = document.querySelectorAll('.team-buttons button');
+    const lists = document.querySelectorAll('.team-list');
 
-      // Toon de geselecteerde categorie
-      document.getElementById(categoryId).classList.add('active');
-
-      // Update actieve knop
-      document.querySelectorAll('.team-btn').forEach(btn => {
-        btn.classList.remove('active');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-target');
+        lists.forEach(list => {
+          if(list.id === targetId) {
+            list.classList.add('active');
+          } else {
+            list.classList.remove('active');
+          }
+        });
       });
-      event.target.classList.add('active');
-    }
+    });
   </script>
 </body>
 </html>
