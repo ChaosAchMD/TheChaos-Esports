@@ -6,11 +6,11 @@
   <title>The Chaos Esports</title>
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html {
       scroll-behavior: smooth;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body, html {
       height: 100%;
@@ -22,7 +22,7 @@
       position: relative;
     }
 
-    /* Logo fade background */
+    /* Logo fade achtergrond */
     body::before {
       content: "";
       position: fixed;
@@ -81,6 +81,13 @@
       letter-spacing: 1px;
     }
 
+    .section-image {
+      max-width: 300px;
+      margin: 20px auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
     .team-category {
       margin-top: 40px;
     }
@@ -116,7 +123,7 @@
       gap: 30px;
       margin-top: 20px;
       opacity: 0;
-      transition: opacity 0.6s ease;
+      transition: opacity 0.5s ease-in-out;
     }
 
     .team-list.active {
@@ -173,6 +180,7 @@
     <section id="home" data-aos="fade-up">
       <h1 class="section-title">Welcome to Chaos Esports</h1>
       <p>Elite gaming starts here. Join our journey and dominate the game.</p>
+      <img src="Logo.png" alt="Chaos Gaming" class="section-image" />
     </section>
 
     <!-- Team -->
@@ -187,54 +195,36 @@
       </div>
 
       <div id="main-roster" class="team-list active">
-        <div class="member-card">
-          <h3>Rayy</h3>
-          <p>2s Main Player</p>
-        </div>
-        <div class="member-card">
-          <h3>Rolling Fuelyt</h3>
-          <p>2s Main Player</p>
-        </div>
+        <div class="member-card"><h3>Rayy</h3><p>2s Main Player</p></div>
+        <div class="member-card"><h3>Rolling Fuelyt</h3><p>2s Main Player</p></div>
       </div>
 
       <div id="academy-roster" class="team-list">
-        <div class="member-card">
-          <h3>Tommy</h3>
-          <p>Academy Player</p>
-        </div>
-        <div class="member-card">
-          <h3>Brandon</h3>
-          <p>Academy Player</p>
-        </div>
+        <div class="member-card"><h3>Tommy</h3><p>Academy Player</p></div>
+        <div class="member-card"><h3>Brandon</h3><p>Academy Player</p></div>
       </div>
 
       <div id="staff-roster" class="team-list">
-        <div class="member-card">
-          <h3>Mr. COACH</h3>
-          <p>Rocket League Coach</p>
-        </div>
-        <div class="member-card">
-          <h3>ShadowBs</h3>
-          <p>Manager</p>
-        </div>
+        <div class="member-card"><h3>Mr. COACH</h3><p>Rocket League Coach</p></div>
+        <div class="member-card"><h3>ShadowBs</h3><p>Manager</p></div>
       </div>
     </section>
 
     <!-- Events -->
     <section id="events" data-aos="zoom-in">
       <h2 class="section-title">Upcoming Events</h2>
-      <p>Upcoming events: Cash Cup and RLCS Last Qualifiers <strong>DON'T MISS THIS OUT!!</strong></p>
+      <p>Cash Cup & RLCS Last Qualifiers - <strong>DON’T MISS THIS OUT!!</strong></p>
 
-      <!-- Twitch Stream placeholder -->
-      <div style="background:#000; padding:40px; color:#ffcc00; font-weight:bold; text-align:center; border-radius:10px;">
-        Stream binnenkort live! Stay tuned.
+      <!-- Stream Placeholder -->
+      <div style="background:#000; padding:40px; color:#ffcc00; font-weight:bold; border-radius:10px;">
+        📺 Stream binnenkort live! Stay tuned.
       </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" data-aos="fade-up">
       <h2 class="section-title">Contact Us</h2>
-      <p>Want to join or partner with us? Email us at contact@chaosesport.com</p>
+      <p>Wil je samenwerken of joinen? Mail ons via <strong>contact@chaosesport.com</strong></p>
     </section>
   </div>
 
@@ -242,7 +232,7 @@
   <script>
     AOS.init({ duration: 1000, once: true });
 
-    // Team buttons smooth fade toggle
+    // Smooth team fade
     const buttons = document.querySelectorAll('.team-buttons button');
     const lists = document.querySelectorAll('.team-list');
 
@@ -250,7 +240,7 @@
       button.addEventListener('click', () => {
         const targetId = button.getAttribute('data-target');
         lists.forEach(list => {
-          if(list.id === targetId) {
+          if (list.id === targetId) {
             list.classList.add('active');
           } else {
             list.classList.remove('active');
